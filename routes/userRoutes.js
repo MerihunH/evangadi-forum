@@ -1,13 +1,14 @@
-const express = require("express");
-// User controller
 const { register, login, check } = require("../controller/usercontroller");
+const express = require("express");
 const router = express.Router();
-const dbConnection = require("../db/dbconfig");
-const middlemare = require("../middleware/authmiddleware");
-// Register route
+// Authorization middleware
+const middleware = require("../middleware/authmiddleware");
+// register route
 router.post("/register", register);
+
 // login route
 router.post("/login", login);
+
 // check route
-router.get("/check", middlemare, check);
+router.get("/check", middleware, check);
 module.exports = router;

@@ -1,5 +1,5 @@
 async function question(req, res) {
-    res.send("wwelcome to question page");
-  };
+  res.send("question router");
+}
 
 module.exports = question;
